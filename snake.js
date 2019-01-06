@@ -1,9 +1,20 @@
-/*
-Create by Learn Web Developement
-Youtube channel : https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA
-*/
+// ссылка на игру в сети интернет
+let url = 'https://webdevlover.github.io'
 
-const cvs = document.getElementById("snake");
+// название игры (то, что указывали в BotFather)
+const gameName = "GFEsnakebot"
+
+// Matches /start
+bot.onText(/\/start/, function onPhotoText(msg) {
+  bot.sendGame(msg.chat.id, gameName);
+});
+
+// Handle callback queries
+bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+  bot.answerCallbackQuery(callbackQuery.id, { url });
+});
+
+const cvs = document.getElementById("GFEsnakebot");
 const ctx = cvs.getContext("2d");
 
 // create the unit
